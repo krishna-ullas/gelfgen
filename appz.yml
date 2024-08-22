@@ -1,0 +1,42 @@
+    app:
+        name: Milvus
+        code: milvus
+        notify: appzdev@cloudbourne.co
+
+    build:
+        version: 2.4
+        env: DEV
+        build_file: none
+        output_files: output/*.zip
+        image_template: milvus-2.4.6
+
+    deploy:
+        context: alpha/DEV
+        type: statefulset
+        replicas: 1
+        resources: x-large
+        ingress: none
+        port:
+        - 9091
+        - 19530
+
+    volumes:
+      - claim: milvus-data
+        mount: /var/lib/milvus
+        name: data
+        size: 5Gi
+      - claim: milvus-backup
+        mount: /appz/backup
+        name: backup
+        size: 5Gi
+
+    properties:
+      ETCD_HOST: "etcd-3-5:2379"
+      MINIO_ADDRESS: s3.ap-south-1.amazonaws.com
+      MINIO_PORT: 443
+      MINIO_BUCKET_NAME: apexa-logger-snapshot-2024-08-08
+      AWS_REGION: ap-south-1
+      MINIO_USE_SSL: true
+      MINIO_USE_IAM: true
+      
+        revision : 28
