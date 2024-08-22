@@ -39,4 +39,3 @@
       MINIO_USE_SSL: true
       MINIO_USE_IAM: true
       
-         revision : 29
