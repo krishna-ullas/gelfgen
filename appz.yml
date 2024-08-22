@@ -38,4 +38,5 @@
       AWS_REGION: ap-south-1
       MINIO_USE_SSL: true
       MINIO_USE_IAM: true
+
       
