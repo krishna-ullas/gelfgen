@@ -38,5 +38,26 @@
       AWS_REGION: ap-south-1
       MINIO_USE_SSL: true
       MINIO_USE_IAM: true
+      MINIO_BACKUPSTORAGETYPE: "minio"
+      MINIO_BACKUP_ADDRESS: "localhost"
+      MINIO_BACKUP_PORT: "9000"
+      MINIO_BACKUP_BUCKET_NAME: "minio-backup1"
+      MINIO_BACKUP_ROOT_PATH: "backup"
+      MINIO_CROSS_STORAGE: "false"
+      MINIO_BACKUP_MAX_SEGMENT_GROUP_SIZE: "2G"
+      MINIO_BACKUP_PARALLELISM_BACKUP_COLLECTION: "4"
+      MINIO_BACKUP_PARALLELISM_COPYDATA: "128"
+      MINIO_BACKUP_PARALLELISM_RESTORE_COLLECTION: "2"
+      MINIO_KEEP_TEMP_FILES: "false"
+      MINIO_GC_PAUSE_ENABLE: "true"
+      MINIO_GC_PAUSE_SECONDS: "7200"
+      MINIO_GC_PAUSE_ADDRESS: "http://localhost:9091"
+      
+      
+      
+      
+      
+      
+      
 
       
