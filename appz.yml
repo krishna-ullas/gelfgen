@@ -15,7 +15,7 @@
         type: statefulset
         replicas: 1
         resources: x-large
-        ingress: none
+        #ingress: none
         port:
         - 9091
         - 19530
