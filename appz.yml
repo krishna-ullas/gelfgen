@@ -9,6 +9,8 @@
         build_file: none
         output_files: output/*.zip
         image_template: milvus-2.4.6
+        build-arg:
+           - "--build-arg S3_ENV=dev"
 
     deploy:
         context: alpha/DEV
@@ -29,6 +31,7 @@
         mount: /appz/backup
         name: backup
         size: 5Gi
+        
 
     properties:
       ETCD_HOST: "etcd-3-5:2379"
@@ -38,6 +41,7 @@
       AWS_REGION: ap-south-1
       MINIO_USE_SSL: true
       MINIO_USE_IAM: true
+      
       #MINIO_BACKUPSTORAGETYPE: "minio"
       #MINIO_BACKUP_ADDRESS: "localhost"
       #MINIO_BACKUP_PORT: "9000"
