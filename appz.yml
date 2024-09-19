@@ -7,10 +7,10 @@
         version: 2.4
         env: DEV
         build_file: none
+        args: 
+             S3_ENV: dev
         output_files: output/*.zip
         image_template: milvus-2.4
-        build-arg:
-           - "--build-arg S3_ENV=dev"
 
     deploy:
         context: alpha/DEV
