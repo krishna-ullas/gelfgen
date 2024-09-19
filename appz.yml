@@ -57,7 +57,6 @@
       #MINIO_GC_PAUSE_SECONDS: "7200"
       #MINIO_GC_PAUSE_ADDRESS: "http://localhost:9091"
 
-
       
 
       
