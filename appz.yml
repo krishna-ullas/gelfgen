@@ -1,77 +1,20 @@
-    app:
-        name: Milvus
-        code: milvus
-        notify: appzdev@cloudbourne.co
-
-    build:
-        version: 2.4
-        env: DEV
-        build_file: none
-        args: 
-             S3_ENV: dev
-        output_files: output/*.zip
-        image_template: milvus-2.4
-
-    deploy:
-        context: alpha/DEV
-        type: statefulset
-        replicas: 1
-        resources: x-large
-        #ingress: none
-        port:
-        - 9091
-        - 19530
-
-    volumes:
-      - claim: milvus-data
-        mount: /var/lib/milvus
-        name: data
-        size: 5Gi
-      - claim: milvus-backup
-        mount: /appz/backup
-        name: backup
-        size: 5Gi
-        
-
-    properties:
-      ETCD_HOST: "etcd-3-5:2379"
-      MINIO_ADDRESS: s3.ap-south-1.amazonaws.com
-      MINIO_PORT: 443
-      MINIO_BUCKET_NAME: apexa-logger-snapshot-2024-08-08
-      AWS_REGION: ap-south-1
-      MINIO_USE_SSL: true
-      MINIO_USE_IAM: true
-      
-      #MINIO_BACKUPSTORAGETYPE: "minio"
-      #MINIO_BACKUP_ADDRESS: "localhost"
-      #MINIO_BACKUP_PORT: "9000"
-      #MINIO_BACKUP_BUCKET_NAME: "minio-backup1"
-      #MINIO_BACKUP_ROOT_PATH: "backup"
-      #MINIO_CROSS_STORAGE: "false"
-      #MINIO_BACKUP_MAX_SEGMENT_GROUP_SIZE: "2G"
-      #MINIO_BACKUP_PARALLELISM_BACKUP_COLLECTION: "4"
-      #MINIO_BACKUP_PARALLELISM_COPYDATA: "128"
-      #MINIO_BACKUP_PARALLELISM_RESTORE_COLLECTION: "2"
-      #MINIO_KEEP_TEMP_FILES: "false"
-      #MINIO_GC_PAUSE_ENABLE: "true"
-      #MINIO_GC_PAUSE_SECONDS: "7200"
-      #MINIO_GC_PAUSE_ADDRESS: "http://localhost:9091"
-
-      
-
-      
-      
-      
-      
-      
-
-
-      
-      
-      
-      
-      
-      
-      
-
-      
+app:
+  name: GelfGen
+  code: GelfGen
+  notify: kullas@ecloudcontrol.com
+build:
+  version: 0.3
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: gelfgen-0.3
+deploy:
+  context: krishna-ullas/DEV
+  replicas: 1
+properties:
+  revision : 22
+  TZ : Asia/Kolkata
+  GELF_GRAYLOG_HOST : graylog-5-2.krishna-ullas-dev
+  GELF_GRAYLOG_PORT : 12201
+  GELF_GEN_PERIOD : 3600
+  GELF_GEN_RATE : 100
