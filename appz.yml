@@ -10,11 +10,11 @@ build:
   image_template: gelfgen-0.3
 deploy:
   context: krishna-ullas/DEV
-  replicas: 1
+  replicas: 4
 properties:
   revision : 32
   TZ : Asia/Kolkata
   GELF_GRAYLOG_HOST : graylog-5-2.krishna-ullas-dev
   GELF_GRAYLOG_PORT : 12201
-  GELF_GEN_PERIOD : 3600
+  GELF_GEN_PERIOD : 2000
   GELF_GEN_RATE : 100
