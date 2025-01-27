@@ -16,5 +16,5 @@ properties:
   TZ : Asia/Kolkata
   GELF_GRAYLOG_HOST : graylog-5-2.krishna-ullas-dev
   GELF_GRAYLOG_PORT : 12201
-  GELF_GEN_PERIOD : 8000
-  GELF_GEN_RATE : 100
+  GELF_GEN_PERIOD : 3600
+  GELF_GEN_RATE : 8000
