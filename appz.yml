@@ -12,9 +12,9 @@ deploy:
   context: krishna-ullas/DEV
   replicas: 4
 properties:
-  revision : 39
+  revision : 40
   TZ : Asia/Kolkata
   GELF_GRAYLOG_HOST : graylog-5-2.krishna-ullas-dev
   GELF_GRAYLOG_PORT : 12201
   GELF_GEN_PERIOD : 3600
-  GELF_GEN_RATE : 6000
+  GELF_GEN_RATE : 5000
