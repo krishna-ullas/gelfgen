@@ -12,7 +12,7 @@ deploy:
   context: krishna-ullas/DEV
   replicas: 4
 properties:
-  revision : 53
+  revision : 54
   TZ : Asia/Kolkata
   GELF_GRAYLOG_HOST : graylog-5-2.krishna-ullas-dev
   GELF_GRAYLOG_PORT : 12201
